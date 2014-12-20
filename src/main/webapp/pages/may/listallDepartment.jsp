@@ -12,20 +12,40 @@
 <title>Department - ListAll</title>
 <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/custom.css">
+<script type="text/javascript">
+	function search() {
+		document.forms[0].action = "SearchDepartment";
+		document.forms[0].submit();
+	}
+</script>
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
+				<div class="row">
+					<form class="form-signin" action="SearchDepartment" method="get">
+						<br>
+						<s:textfield cssClass="form-control" placeholder="Search"
+							name="nameDepartment" id="search" />
+						<div class="row">
+							<div class="col-xs-12">
+								<button class="btn btn-md btn-primary btn-block"
+									onclick="search()">Search</button>
+							</div>
+						</div>
+					</form>
+				</div>
 				<br> <a href="initMain">Main Menu</a> | <a
 					href="InitAddDepartment">Add New</a> <br>
-				<center>
+				<div align="center">
 					<s:iterator value="departments">
 						<s:property value="name" />
-						<a href="DeleteMay?id=<s:property value="id" />">Delete</a>
+						<a href="InitUpdateDepartment?id=<s:property value="id" />">Edit</a> |
+						<a href="DeleteDepartment?id=<s:property value="id" />">Delete</a>
 						<br>
 					</s:iterator>
-				</center>
+				</div>
 			</div>
 		</div>
 	</div>

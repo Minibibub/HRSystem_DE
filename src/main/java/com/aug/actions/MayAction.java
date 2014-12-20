@@ -21,12 +21,14 @@ public class MayAction extends ActionSupport implements BaseAction {
 	private May may;
 	private List<May> mays;
 	private Integer id;
-	private String search;
+	private String searchName;
 
 	@Autowired
 	private DepartmentService departmentservice;
 	private Department department;
 	private List<Department> departments;
+	private Integer idDepartmemt;
+	private String nameDepartment;
 
 	public MayService getMayservice() {
 		return mayservice;
@@ -60,12 +62,12 @@ public class MayAction extends ActionSupport implements BaseAction {
 		this.id = id;
 	}
 
-	public String getSearch() {
-		return search;
+	public String getSearchName() {
+		return searchName;
 	}
 
-	public void setSearch(String search) {
-		this.search = search;
+	public void setSearchName(String searchName) {
+		this.searchName = searchName;
 	}
 
 	public DepartmentService getDepartmentservice() {
@@ -92,6 +94,22 @@ public class MayAction extends ActionSupport implements BaseAction {
 		this.departments = departments;
 	}
 
+	public Integer getIdDepartmemt() {
+		return idDepartmemt;
+	}
+
+	public void setIdDepartmemt(Integer idDepartmemt) {
+		this.idDepartmemt = idDepartmemt;
+	}
+
+	public String getNameDepartment() {
+		return nameDepartment;
+	}
+
+	public void setNameDepartment(String nameDepartment) {
+		this.nameDepartment = nameDepartment;
+	}
+
 	@Override
 	@Action(value = "InitAddMay", results = { @Result(name = "input", location = "pages/may/addMay.jsp") })
 	public String initCreate() {
@@ -116,9 +134,14 @@ public class MayAction extends ActionSupport implements BaseAction {
 		return null;
 	}
 
-	@Override
 	@Action(value = "InitAddDepartment", results = { @Result(name = "input", location = "pages/may/addDepartment.jsp") })
 	public String initCreateDepartment() {
+		return INPUT;
+	}
+	
+	@Action(value = "InitUpdateDepartment", results = { @Result(name = "input", location = "pages/may/updateDepartment.jsp") })
+	public String initUpdateDepartment() {
+		department = departmentservice.findByIdDepartment(idDepartmemt);
 		return INPUT;
 	}
 
@@ -154,25 +177,45 @@ public class MayAction extends ActionSupport implements BaseAction {
 		return INPUT;
 	}
 
-	@Override
 	@Action(value = "SearchMay", results = { @Result(name = "success", location = "pages/may/findnameMay.jsp") })
 	public String search() {
-		mays = mayservice.search(search);
+		mays = mayservice.search(searchName);
 		return SUCCESS;
 	}
 
-	@Override
+	
+	
 	@Action(value = "AddDepartment", results = { @Result(name = "success", location = "ListAllDepartment", type = "redirect") })
 	public String createDepartment() {
 		departmentservice.saveDepartment(department);
 		return SUCCESS;
 	}
 
-	@Override
 	@Action(value = "ListAllDepartment", results = { @Result(name = "success", location = "pages/may/listallDepartment.jsp") })
 	public String listDepartment() {
 		departments = departmentservice.findAllDepartment();
 		return SUCCESS;
 	}
+	
+	@Action(value = "UpdateDepartment", results = { @Result(name = "success", location = "ListAllDepartment", type = "redirect") })
+	public String updateDepartment() {
+		departmentservice.updateDepartment(department);
+		return SUCCESS;
+	}
 
+	@Action(value = "DeleteDepartment", results = {
+			@Result(name = "input", location = "ListAllDepartment", type = "redirect"),
+			@Result(name = "success", location = "ListAllDepartment", type = "redirect") })
+	public String deleteDepartment() {
+		if (departmentservice.deleteByIdDepartment(idDepartmemt)) {
+			return SUCCESS;
+		}
+		return INPUT;
+	}
+	
+	@Action(value = "SearchDepartment", results = { @Result(name = "success", location = "pages/may/findnameDepartment.jsp") })
+	public String searchDepartment() {
+		departments = departmentservice.searchDepartment(nameDepartment);
+		return SUCCESS;
+	}
 }

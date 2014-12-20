@@ -60,9 +60,4 @@ public abstract class BaseHibernateDaoImpl<T extends Serializable> implements Ba
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-        
-    @Transactional(readOnly = false)
-    public List<T> search(final String search) {	
-    	return getCurrentSession().createCriteria(clazz).add(Restrictions.eq("name", search)).list();
-    }
 }

@@ -22,4 +22,20 @@ public class DepartmentService {
 		return departmentDao.findAll();
 	}
 
+	public Department findByIdDepartment(Integer id) {
+		return departmentDao.getById(id);
+	}
+
+	public boolean deleteByIdDepartment(Integer idDepartmemt) {
+		return departmentDao.deleteByIdDepartment(idDepartmemt);
+	}
+
+	public List<Department> searchDepartment(String name) {
+		return departmentDao.searchDepartment(name);
+	}
+
+	public void updateDepartment(Department department) {
+		departmentDao.update(department);
+	}
+
 }

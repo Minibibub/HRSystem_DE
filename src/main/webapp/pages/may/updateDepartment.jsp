@@ -9,12 +9,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>May - Add</title>
+<title>Department - Update</title>
 <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/custom.css">
 <script type="text/javascript">
-	function add() {
-		document.forms[0].action = "AddMay";
+	function update() {
+		document.forms[0].action = "UpdateDepartment";
 		document.forms[0].submit();
 	}
 </script>
@@ -28,25 +28,15 @@
 						<s:actionerror />
 					</div>
 				</s:if>
-				<form class="form-signin" action="AddMayAdd" method="post">
-					<s:textfield cssClass="form-control" placeholder="FullName"
-						name="may.name" id="name" />
-					<s:textfield cssClass="form-control" placeholder="Email"
-						name="may.email" id="email" />
-					<s:textfield cssClass="form-control" placeholder="Age"
-						name="may.age" id="age" />
-					<s:textfield cssClass="form-control" placeholder="Owner"
-						name="may.may" id="owner" />
+				<form class="form-signin" action="UpdateDepartmentUpdate" method="post">
+					<s:hidden name="department.id" id="id" />
 					<s:textfield cssClass="form-control" placeholder="Department"
-						name="may.department" id="department" />
-					<div class="row">
-						<div class="col-xs-6">
-							<button class="btn btn-md btn-primary" onclick="add()">Add</button>
-							<button class="btn btn-md btn-primary" type="reset">Clear</button>
-						</div>
-					</div>
+						name="department.name" id="name" />
+					<button class="btn btn-md btn-primary" onclick="update()">Update</button>
+					<button class="btn btn-md btn-primary" type="reset">Clear</button>
 				</form>
-				<a href="initMain">Main Menu</a>
+				<a href="initMain">Main Menu</a> | <a href="InitAddDepartment">Add New</a>
+				<br>
 			</div>
 		</div>
 	</div>

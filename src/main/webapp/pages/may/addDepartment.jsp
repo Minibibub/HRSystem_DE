@@ -28,13 +28,15 @@
 						<s:actionerror />
 					</div>
 				</s:if>
-				<form class="form-signin" action="AddDepartmentmay" method="post">
+				<form class="form-signin" action="AddDepartmentMay" method="post">
 					<s:textfield cssClass="form-control" placeholder="DepartmentName"
-						name="department.name" id="namede" />
+						name="department.name" id="name" />
 					<div class="row">
 						<div class="col-xs-6">
-							<button class="btn btn-md btn-primary" onclick="add()">Add</button>
-							<button class="btn btn-md btn-primary" type="reset">Clear</button>
+							<div align="center">
+								<button class="btn btn-md btn-primary" onclick="add()">Add</button>
+								<button class="btn btn-md btn-primary" type="reset">Clear</button>
+							</div>
 						</div>
 					</div>
 				</form>

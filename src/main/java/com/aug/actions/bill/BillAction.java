@@ -46,23 +46,4 @@ public class BillAction implements BaseAction {
 		return null;
 	}
 
-	@Override
-	public String search() {
-		return null;
-	}
-	
-	@Override
-    public String initCreateDepartment() {
-        return null;
-    }
-    
-    @Override
-    public String createDepartment() {
-        return null;
-    }
-    
-    @Override
-    public String listDepartment() {
-        return null;
-    }
 }

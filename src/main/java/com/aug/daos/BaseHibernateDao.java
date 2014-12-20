@@ -16,6 +16,4 @@ public interface BaseHibernateDao<T> {
 
     public void delete(final T entity);
     
-    public List<T> search(final String search);
-
 }

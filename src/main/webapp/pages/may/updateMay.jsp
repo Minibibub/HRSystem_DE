@@ -28,9 +28,9 @@
 						<s:actionerror />
 					</div>
 				</s:if>
-				<form class="form-signin" action="UpdateMay" method="post">
+				<form class="form-signin" action="UpdateMayUpdate" method="post">
 					<s:hidden name="may.id" id="id" />
-					<s:textfield cssClass="form-control" placeholder="Full Name"
+					<s:textfield cssClass="form-control" placeholder="FullName"
 						name="may.name" id="name" />
 					<s:textfield cssClass="form-control" placeholder="Email"
 						name="may.email" id="email" />
@@ -38,6 +38,8 @@
 						name="may.age" id="age" />
 					<s:textfield cssClass="form-control" placeholder="Owner"
 						name="may.may" id="owner" />
+					<s:textfield cssClass="form-control" placeholder="Department"
+						name="may.department" id="department" />
 					<button class="btn btn-md btn-primary" onclick="update()">Update</button>
 					<button class="btn btn-md btn-primary" type="reset">Clear</button>
 				</form>

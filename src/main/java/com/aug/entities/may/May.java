@@ -1,9 +1,10 @@
 package com.aug.entities.may;
 
 import com.aug.entities.BaseEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import java.io.Serializable;
@@ -20,6 +21,10 @@ public class May extends BaseEntity implements Serializable {
 	
 	@Column(name = "MAY")
     private String may;
+//	
+//	@ManyToOne
+//	@JoinColumn(name = "DEPARTMENT")
+//	private Department department;
 
 	public String getEmail() {
 		return email;
@@ -44,5 +49,13 @@ public class May extends BaseEntity implements Serializable {
 	public void setMay(String may) {
 		this.may = may;
 	}
+
+//	public Department getDepartment() {
+//		return department;
+//	}
+//
+//	public void setDepartment(Department department) {
+//		this.department = department;
+//	}
 	
 }

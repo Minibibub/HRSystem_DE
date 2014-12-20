@@ -9,9 +9,4 @@ public interface BaseAction {
     public String list();
     public String update();
     public String delete();
-    public String search();
-    public String initCreateDepartment();
-    public String createDepartment();
-    public String listDepartment();
-    
 }

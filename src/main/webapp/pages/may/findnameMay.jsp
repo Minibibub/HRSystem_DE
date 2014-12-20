@@ -12,6 +12,12 @@
 <title>May - FindByName</title>
 <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/custom.css">
+<script type="text/javascript">
+	function search() {
+		document.forms[0].action = "SearchMay";
+		document.forms[0].submit();
+	}
+</script>
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
@@ -19,7 +25,7 @@
 			<div class="container">
 				<form class="form-signin" action="SearchMay" method="get">
 					<s:textfield cssClass="form-control" placeholder="Search"
-						name="search" id="search" />
+						name="searchName" id="search" />
 					<div class="row">
 						<div class="col-xs-12">
 							<button class="btn btn-md btn-primary btn-block"
@@ -30,19 +36,20 @@
 				<br> <a href="initMain">Main Menu</a> | <a href="InitAddMay">Add
 					New</a>
 			</div>
-			<center>
+			<div align="center">
 				<br>
-				<form class="form-signin" action="Search" method="get">
+				<form class="form-signin" action="Search" method="post">
 					<s:iterator value="mays">
 						<s:property value="name" />
 						<s:property value="email" />
 						<s:property value="age" />
 						<s:property value="may" />
+						<s:property value="department" />
 						<a href="UpdateMay?id=<s:property value="id" />">Edit</a> | <a
 							href="DeleteMay?id=<s:property value="id" />">Delete</a>
 					</s:iterator>
 				</form>
-			</center>
+			</div>
 		</div>
 	</div>
 	<script src="js/jquery-1.11.1.min.js"></script>
